@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Raw/local data
+data/
+raw_data/
+Images/
+Eye-tracking Output/
+Metadata/
+data/*.jsonl
+raw_data/*.jsonl
+
+# Large artifacts
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+
+# Heavy generated outputs
+outputs/cache*/
+outputs/checkpoints*/
+
+# Temporary
+tree_output*.txt
+*.tmp
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

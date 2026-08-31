@@ -1,0 +1,1 @@
+@echo off\nsetlocal\ncd /d "%~dp0"\n\necho Removing __pycache__ folders...\nfor /d /r %%D in (__pycache__) do (\n    if exist "%%D" rmdir /s /q "%%D"\n)\n\necho Removing tree_output files...\ndel /q tree_output*.txt 2>nul\n\necho.\necho Cleanup complete.\necho.\ntree /F /A\npause\n

@@ -1,0 +1,68 @@
+[
+  {
+    "model": "gpt-4o (0-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 8.9432,
+    "rmse": 10.4493,
+    "r2": -2.0538,
+    "spearman": -0.2696,
+    "n_shots": 0,
+    "model_key": "gpt4v"
+  },
+  {
+    "model": "gemini-2.5-flash (0-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 11.2273,
+    "rmse": 13.0667,
+    "r2": -3.7752,
+    "spearman": -0.0365,
+    "n_shots": 0,
+    "model_key": "gemini"
+  },
+  {
+    "model": "gpt-4o (3-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 4.5,
+    "rmse": 5.6679,
+    "r2": 0.1015,
+    "spearman": 0.2842,
+    "n_shots": 3,
+    "model_key": "gpt4v"
+  },
+  {
+    "model": "gemini-2.5-flash (3-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 6.1705,
+    "rmse": 7.6667,
+    "r2": -0.6439,
+    "spearman": 0.0846,
+    "n_shots": 3,
+    "model_key": "gemini"
+  },
+  {
+    "model": "gpt-4o (10-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 5.3977,
+    "rmse": 6.9483,
+    "r2": -0.3502,
+    "spearman": 0.0189,
+    "n_shots": 10,
+    "model_key": "gpt4v"
+  },
+  {
+    "model": "gemini-2.5-flash (10-shot)",
+    "n_total": 44,
+    "n_failed": 0,
+    "mae": 4.6477,
+    "rmse": 6.6397,
+    "r2": -0.233,
+    "spearman": 0.3483,
+    "n_shots": 10,
+    "model_key": "gemini"
+  }
+]
