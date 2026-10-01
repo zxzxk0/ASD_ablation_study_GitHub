@@ -43,11 +43,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from scipy.stats import spearmanr
 
 # ===== 경로 =====
-# Defaults are repository-relative; override with CLI arguments.
-IMG_ROOT  = Path("data") / "Images" / "TSImages"
-DATA_PATH = Path("data") / "all_scanpath_absolute.jsonl"
-OUT_DIR   = Path("outputs") / "checkpoints_v6"
-CACHE_DIR = Path("outputs") / "cache_v2"
+IMG_ROOT  = Path(r"D:\DOWNLOAD\7073087\IMAGES\IMAGES\TSImages")
+DATA_PATH = Path(r"D:\download\7073087\all_scanpath_absolute.jsonl")
+OUT_DIR   = Path(r"D:\download\7073087\outputs\checkpoints_v6")
+CACHE_DIR = Path(r"D:\download\7073087\outputs\cache_v2")
+for p in [OUT_DIR, CACHE_DIR]:
+    p.mkdir(parents=True, exist_ok=True)
 
 META_CANDIDATES_CONT = {"age", "iq", "age_z"}
 META_CANDIDATES_CAT  = {"gender", "class", "diagnosis"}
@@ -83,14 +84,7 @@ def parse_args():
     ap.add_argument("--lr",           type=float, default=1e-3)
     ap.add_argument("--weight_decay", type=float, default=0.05)
     ap.add_argument("--batch_size",   type=int,   default=32)
-    ap.add_argument("--data_csv",     type=str,   default=str(DATA_PATH),
-                    help="Input JSONL containing rendered scanpath records")
-    ap.add_argument("--image-root",   type=Path,  default=IMG_ROOT,
-                    help="Directory containing rendered scanpath images")
-    ap.add_argument("--output-dir",   type=Path,  default=OUT_DIR,
-                    help="Directory for model checkpoints and outputs")
-    ap.add_argument("--cache-dir",    type=Path,  default=CACHE_DIR,
-                    help="Directory for embedding caches")
+    ap.add_argument("--data_csv",     type=str,   default=str(DATA_PATH))
     return ap.parse_args()
 
 
@@ -570,13 +564,7 @@ def run_lopo(method, X_img, y_img, groups, M_img, args, device, tag=""):
 # 메인
 # ─────────────────────────────────────────
 def main():
-    global IMG_ROOT, OUT_DIR, CACHE_DIR
-    args = parse_args()
-    IMG_ROOT = Path(args.image_root)
-    OUT_DIR = Path(args.output_dir)
-    CACHE_DIR = Path(args.cache_dir)
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    args   = parse_args()
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"[INFO] device={device}  epochs={args.epochs}  patience={args.patience}")
     print(f"[INFO] FIXED_SEED={FIXED_SEED}\n")

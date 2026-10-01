@@ -44,7 +44,7 @@ Recommended final run:
     python run_gaze_canonical_from_raw.py ^
         --bootstrap 10000 ^
         --fixed-permutations 2000 ^
-        --nested-family-permutations 200
+        --nested-family-permutations 2000
 
 For a quick smoke test:
 

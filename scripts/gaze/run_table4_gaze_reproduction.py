@@ -36,7 +36,7 @@ is to establish a clean, fold-safe canonical Table-4 pipeline from the
 currently retained participant-level CSV.
 
 Example:
-    cd /d <repository-or-data-directory>
+    cd /d C:\\Users\\zxzxk\\Downloads\\7073087
     python run_table4_gaze_reproduction.py
 
 Optional full nested family-selection permutation test:

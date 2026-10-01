@@ -35,7 +35,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-CKPT_DIR = Path("outputs") / "checkpoints_v6"
+CKPT_DIR = Path(r"D:\download\7073087\outputs\checkpoints_v6")
 
 # Published Table 1 values (PEA-MLP column) to check reconstructed
 # predictions against.

@@ -1,0 +1,23 @@
+item,n
+studies included (full text; 547-image release),15
+headline split unit: not reported,12
+headline split unit: participant-level (explicit),2
+headline split unit: image-level (explicit),1
+augmentation (headline analysis): applied; timing not reported,5
+augmentation (headline analysis): train-only after split (explicit),4
+augmentation (headline analysis): not reported,2
+augmentation (headline analysis): none,2
+augmentation (headline analysis): generated images added to training only; generator-fitting scope not reported,1
+"augmentation (headline analysis): after test hold-out, applied to pooled train+validation",1
+participant-disjoint analysis reported: none,11
+participant-disjoint analysis reported: full image set,3
+participant-disjoint analysis reported: one-image-per-participant subset only,1
+"headline split unit not reported, split described only in image counts/batches",4
+model selection: not described,6
+model selection: selection performed; data source not reported or ambiguous,7
+model selection: explicitly independent of the test set,2
+authors discuss leakage/contamination risk in their own protocol,2
+authors critique leakage in prior studies,1
+headline value >=0.95 (accuracy or AUC),8
+  ...of which with a participant-disjoint evaluation of the full image set,0
+participant-disjoint full-set results (range as reported),"Cilia2021: ~90% / ~71% (part.); Elbattah2022TL: AUC ~0.78; Zhang2026: Acc 0.870, AUC 0.937"

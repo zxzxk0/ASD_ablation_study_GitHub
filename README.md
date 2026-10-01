@@ -2,7 +2,7 @@
 
 Reproducible code for the study:
 
-**Temporal Gaze Dynamics as Interpretable Candidate Markers of Autism Symptom Severity: A Subject-Level Comparison with Rendered Scanpath-Image Representations**
+**Subject-Level Evaluation of Autism Severity Prediction from Eye Tracking: Temporal Gaze Dynamics, Scanpath Images, and Recording-Quality Sensitivity**
 
 ## Repository structure
 
@@ -62,7 +62,7 @@ Recommended final run:
 python scripts\gaze\run_gaze_canonical_from_raw.py ^
   --bootstrap 10000 ^
   --fixed-permutations 2000 ^
-  --nested-family-permutations 200
+  --nested-family-permutations 2000
 ```
 
 This script reconstructs the 18 base and 11 enhanced gaze features, aggregates them at participant level, runs outer LOPO evaluation with fold-specific preprocessing, performs ridge/SVR/GBR comparisons, and runs the fully nested family-selection analysis used as the primary inferential result.
@@ -102,7 +102,7 @@ scripts/image/train_mlp_v6_final.py
 scripts/image/verify_v6_checkpoints_match_table1.py
 ```
 
-These scripts support the rendered scanpath-image experiments, shallow-probe analysis, model training, and checkpoint provenance audit.
+The shallow-probe script supports the current image arm. `train_mlp_v6_final.py` is retained for embedding-cache generation and historical PEA-MLP experiments; its PEA-MLP results and `verify_v6_checkpoints_match_table1.py` refer to earlier manuscript tables, not v5 Table 1. The current MetaCA-MIL evaluation is documented below.
 
 Example image-arm commands:
 
@@ -138,17 +138,17 @@ set GOOGLE_API_KEY=YOUR_KEY_HERE
 
 ## Reproducibility notes
 
-- Evaluation is performed at the participant level.
+- The primary analyses use participant-disjoint evaluation; protocol stress tests deliberately compare alternative split and selection rules.
 - The primary gaze-dynamics inferential result uses fully nested model-family selection.
-- Data-dependent preprocessing is fit only on outer-training participants.
+- For gaze regression, imputation and standardization are re-fitted on the training participants within each inner and outer fold. Classification and protocol-replay preprocessing follow the separately documented procedures; they should not be described collectively as fully nested preprocessing.
 - Individual ridge/SVR/GBR results are descriptive; family-specific permutation tests are secondary.
 - The recording-quality ablation uses a fixed complete-case cohort.
 - Large model checkpoints, embedding caches, and the original dataset are excluded from Git.
-- Image-arm paths are repository-relative by default and can be overridden with command-line arguments.
+- Some scripts retain the local paths used during development. Override input, cache, and output paths with their command-line arguments.
 
 ## Generative AI disclosure
 
-Generative AI (ChatGPT, OpenAI) was used to assist in developing and refactoring portions of the analysis code. All code was reviewed, tested, and executed by the authors, who take full responsibility for the analyses and reported results.
+Generative AI (ChatGPT, OpenAI; Claude, Anthropic) was used to assist in developing and refactoring portions of the analysis code. All code was reviewed, tested, and executed by the authors, who take full responsibility for the analyses and reported results.
 
 ## Citation
 
@@ -157,3 +157,85 @@ Citation information will be added after publication.
 ## License
 
 Add the appropriate software license before public release.
+
+## Validation-protocol analysis (MetaCA-MIL, nested vs non-nested early stopping)
+
+Script: `scripts/image/run_metacamil_nested_es.py`
+Reproduces main-text Table 3 and Supplementary Table S1:
+- four stopping rules: held-out epoch, fixed final epoch, nested refit, nested inner ensemble
+- 5 seeds
+- 50 participant-label permutations
+- automated consistency checks
+
+```bat
+python scripts\image\run_metacamil_nested_es.py --data-path data\all_scanpath_absolute.jsonl --cache outputs\cache_v2\all_data_EVA02-B-16_merged2b_s8b_b131k.npz --out-dir outputs\metacamil_nested_es --configs best_cand --n-perm 50 --strict
+```
+
+The MetaCA-MIL command is a documented invocation with explicit 50 permutations, not a recovered execution log. The cache filename follows the supplied script; verify that this cache is available and adjust the data path. Other options retain script defaults; confirm them against the saved run configuration. The default `--n-perm 0` does not run permutations.
+
+Outputs:
+- `summary.csv`
+- `permutation_summary.csv`
+- `participant_predictions.csv`
+
+Supplementary leakage-contrast figure: `scripts/figures/make_fig_leakage_contrast.py --pred outputs\metacamil_nested_es\participant_predictions.csv`
+
+## ASD-versus-TD protocol replay (E1-E4)
+
+Script: `scripts/replay/run_audit_replay_E1_E4.py` (main-text Section 3.5, Supplementary Section S8, Table S14)
+
+| Experiment | Comparison |
+|---|---|
+| E1 | split unit |
+| E2 | augmentation order |
+| E3 | test-fold epoch/configuration selection |
+| E4 | fine-tuned ResNet-50 epoch selection |
+
+The replay compares image-level and participant-level splitting; participant-disjoint conditions use deterministic stratified group splitting. A synthetic self-test checks that leaks are detected.
+
+```bat
+python scripts\replay\run_audit_replay_E1_E4.py --experiments E1 E2 E3 E4 --e4-seeds 5 --strict
+```
+
+## Literature audit (Supplementary Section S9, Table S15)
+
+Folder: `audit/`
+- `literature_audit_pdf_verification.csv`: quote and page evidence checked against each PDF.
+- `build_audit_verified.py`: derives the paper-level codes, counts and LaTeX table from that file.
+- `search_log.md`: search queries.
+
+```bat
+cd audit && python build_audit_verified.py
+```
+
+## Remaining reproducibility materials
+
+This package merges the supplied repository and additions; it is not yet a complete archive of every v5 analysis. Still to add: Claude Opus 4.5 implementation and saved results; final MetaCA-MIL and E1-E4 run outputs; the canonical 2,000-permutation gaze output; and the package versions used for the published runs. The original data and large caches are not bundled. No new experiment results were generated during packaging. A software license still needs to be selected by the authors.
+
+## Participant-overlap stress tests (Supplementary S5)
+
+Keep these two files in the same directory: the identity/metadata script imports the ridge stress-test module.
+
+```bat
+python scripts\image\run_participant_leakage_stress_test.py --cache-dir outputs\cache_v3_unambiguous --metadata-csv Metadata\Metadata\Metadata_Participants.csv --n-repeats 10 --n-label-permutations 100
+python scripts\image\run_identity_and_metadata_leakage.py --cache-dir outputs\cache_v3_unambiguous --metadata-csv Metadata\Metadata\Metadata_Participants.csv --n-repeats 10 --n-label-permutations 100 --n-identity-permutations 10000
+```
+
+These commands make the manuscript repeat/permutation counts explicit; they are not recovered execution logs. Compare all settings and saved outputs with the actual runs before claiming numerical reproduction. Identity permutations reassign participant IDs across images while preserving image counts; CARS-label permutations shuffle labels at participant level.
+
+Quick checks without the original data:
+
+```bat
+python scripts\image\run_participant_leakage_stress_test.py --self-test-only
+python scripts\image\run_identity_and_metadata_leakage.py --self-test-only
+```
+
+Both self-tests passed during packaging. Python syntax and ZIP integrity were checked; full dataset-dependent experiments and API calls were not rerun.
+
+## Historical figure code
+
+`legacy/generate_plots.py` targets historical v2 checkpoints and is not the v5 figure-generation pipeline. The current leakage-contrast figure uses `scripts/figures/make_fig_leakage_contrast.py` and saved MetaCA-MIL participant predictions.
+
+## Submission snapshot
+
+See `RELEASE_STATUS.md` for the remaining materials. After the final files are added, record the Git commit or release tag used for submission so the manuscript points to a fixed code version.

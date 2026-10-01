@@ -20,7 +20,7 @@ CLIP ViT-L/14, DINOv2 ViT-S/14)까지 동일한 방법론으로 채웁니다.
 읽어서 씁니다.
 
 === 실행 위치 ===
-Repository root (or pass explicit --cache-dir / --metadata-csv paths)에서 실행하세요.
+D:\download\7073087\  (이미지 arm 데이터가 있는 폴더) 에서 실행하세요.
 conda env: zxzxk0 (지금까지 다른 스크립트들을 실행했던 것과 동일한 환경)
 
 === 필요한 입력 파일 ===

@@ -1,0 +1,82 @@
+id,item,page,section_or_table,verdict,verbatim_quote
+Carette2019,dataset,9,Section 3,verified,The visualizations resulted in an image dataset containing 547 images.
+Carette2019,split,1–20,Entire PDF; Section 5.1 on PDF p. 13,not found,
+Carette2019,aug,9,Section 4.1,verified,"The dataset was augmented with additional 2,735 samples, where five synthetic images were generated for each visualization."
+Carette2019,sel,13,Section 5.1,verified,The models were trained based on 10 rounds of cross-validation including 100 epochs and 20% dropout.
+Carette2019,headline,13,Figure 6; Section 5.1,corrected,ANN 1-Layer(200) (AUC≈0.92 ±0.02)
+Cilia2021,dataset,5,Data collection,verified,"a total of 547 images (328 for non-ASD participants and 219 for those diagnosed with ASD), which corresponded to an average of 9.27 images per child (10.93 for non-ASD participants and 7.55 for those diagnosed with ASD)."
+Cilia2021,split,6,Participant split experiment,corrected,"To further examine the model performance, the training and test sets were split based on the participants."
+Cilia2021,aug,5,Data Preprocessing and Augmentation,verified,"The data set was augmented with an additional 2735 samples, where 5 synthetic samples were generated for each image."
+Cilia2021,sel,6,Classification experiments,verified,The model was trained based on 3 rounds of cross-validation over 3 epochs.
+Cilia2021,headline,7,Figure 4 and accompanying text,corrected,The accuracy (≈71%) could still be viewed as promising given the relatively small data set.
+Elbattah2021VAE,dataset,7,Section 5,verified,"Speciﬁcally, 328 images related to the TD participants, and another 219 images for the ASD-diagnosed."
+Elbattah2021VAE,split,10,Section 6.3,not found,The dataset was parti- tioned into training and test sets based on a three-fold cross-validation.
+Elbattah2021VAE,aug,10,Section 6.3,verified,"the model was re-trained after the inclusion of the VAE-generated images in the training set. However, the test set always included samples from the original dataset in both scenarios."
+Elbattah2021VAE,sel,11,Section 6.3,verified,The training process was completed over 10 epochs using an Adam optimizer [63] with its default parameters.
+Elbattah2021VAE,headline,11,Table 2,corrected,Baseline case (no augmentation) 0.71 67% With VAE-based augmentation 0.76 70%
+Elbattah2022TL,dataset,4,Section 4.1,verified,"Specifically, 328 images related to the TD participants, and another 219 images for the ASD- diagnosed."
+Elbattah2022TL,split,5,Section 5.2,verified,The split process was conducted over two stages to ensure that images of a particular participant would exist either in the train or test sets.
+Elbattah2022TL,aug,6,Section 5.2,verified,augmentation were used exclusively in the train set based on participant IDs as well.
+Elbattah2022TL,sel,5–7,Sections 5–6,not found,
+Elbattah2022TL,headline,6,Section 5.4,verified,the VGG- 16 model could achieve the best performance with ROC-AUC≈0.78.
+Kanhirakadavath2022,dataset,4,Section 2,verified,This dataset contains 547 visualized Eye-Tracking Scan Path (ETSP) images
+Kanhirakadavath2022,split,11,Step 2,corrected,"We started by splitting the image data (547 × 10,000) into two parts: 70%:30%, with 382 images serving as the training set and 165 images acting as the model’s test set."
+Kanhirakadavath2022,pd_subset,14,Final step; LOOCV subset,corrected,"As a ﬁnal step, we prepared a mini-batch dataset that encapsulated only single trials from each of 59 participants and evaluated the DNN’s (the best performing model) accuracy. This dataset contains only 59 ETSP images, as the name implies. We used the leave-one- out cross-validation (LOOCV) technique to train and validate the model. LOOCV is recommended over k-fold cross-validation; in this method, one randomly selected ETSP image from the minibatch of 59 serve"
+Kanhirakadavath2022,aug,13,Steps 5–6,verified,"We rotated each image in the original dataset by 45, 60, 90, and 180 degrees, resulting in a synthetic dataset of 2566 RGB images consisting of 1047 ASD and 1519 TDs."
+Kanhirakadavath2022,sel,15,Section 4,corrected,We wired multiple DNNs by modifying the CNN module’s kernel settings (size and counts) and the number of deep layers and dropout layers in the DNN module to obtain the best results.
+Kanhirakadavath2022,headline,15,Section 4; Tables 5–6,corrected,"The results show that the model detected 26 true negative cases out of the 30, scoring a speciﬁcity of 86.67%, 17 true positive cases out of the 29, offering sensitivity of 58.62%, NPV 64%, and PPV 80.95% with an overall accuracy of 72.88%."
+AhmedIA2022,dataset,14,Section 4.1,verified,"The dataset contains 547 images divided into two classes, namely, ASD containing 219 images (40%) and TD containing 328 images (60%)."
+AhmedIA2022,split,14,Section 4.1,not found,"The dataset was divided into 80% for training and validation, 80%:20%, respectively (350:88 images), and 20% for testing (109 images)."
+AhmedIA2022,aug,19,Section 4.4; Table 5,verified,"Data increments were applied for classes ASD and TD by seven and ten times for each image, respectively, to balance the dataset during the training and validation phase."
+AhmedIA2022,sel,19,Table 6,verified,Max Epochs 4 8 Initial Learn Rate 0.0003 0.0001 Validation Frequency 3 5
+AhmedIA2022,headline,1,Abstract,verified,This technique achieved a high accuracy of 99.8% for FFNNs and ANNs.
+Thanarajan2023,dataset,10,Section 3,verified,"using the ASD dataset with 547 total instances [35], comprising 219 images under the ASD class and 328 images under the TD class"
+Thanarajan2023,split,10,Section 3,not found,"With 80% of TRS, the ETASD-CBODL technique categorizes 178 samples into the ASD class and 248 samples into the TD class [36]."
+Thanarajan2023,aug,1–19,Entire PDF; Sections 2–3,not found,
+Thanarajan2023,sel,8,Section 2.2,verified,The accuracy value was the main condition leveraged to devise a fitness function.
+Thanarajan2023,headline,10,Section 3,verified,"Furthermore, with 20% of TSS, the ETASD-CBODL method reaches an average accubal of 99.29%, precn of 98.78%, sensy of 99.29%, specy of 99.29%, Fscore of 99.02%, and Gmean of 99.28%."
+Islam2024,dataset,6,Section 3.1,corrected,"This dataset contains 547 images, where 328 images are from typically developed TD participants and 219 from ASD diagnosed participants."
+Islam2024,split,7,Section 3.1,not found,"We split the dataset randomly into an 80:10:10 approach, where 80 is training and 10 for testing and validation data."
+Islam2024,aug,6,Section 3.1,verified,"For experimental purposes and to check how the model learns, we augment the data using rotation, shear, and width shift techniques, which turn the dataset 4 times larger."
+Islam2024,sel,9,Section 4.2,verified,We use an Adam optimizer with a 0.00001 learning rate and each model is trained with 30 epochs. This number of epochs is optimal since it gives the best fit and performance.
+Islam2024,headline,12,Tables 3–4; Section 4.4,corrected,Ours 99.43 99.30 99.49 0.356 M
+Alsaidi2024,dataset,7,Section 3.1,verified,"The resulting visualizations comprised a dataset of 547 images, with 328 images corresponding to participants without ASD and 219 images corresponding to participants with ASD."
+Alsaidi2024,split,15,Section 4.1,not found,"The training dataset consisted of 410 images (75% for training), while the test dataset had 137 images (25% for testing)."
+Alsaidi2024,aug,15,Section 4.1,verified,The results were obtained without using augmented images.
+Alsaidi2024,sel,15,Section 4.2,verified,"The T-CNN-ASD model reached a peak accuracy of 95.59% by employing two layers with 300 and 150 neurons, respectively."
+Alsaidi2024,headline,15,Section 4.2 / Table 2,verified,"The T-CNN-ASD model reached a peak accuracy of 95.59% by employing two layers with 300 and 150 neurons, respectively."
+Alsharif2024,dataset,4,Section 3.1,verified,The collection presently comprises 547 images.
+Alsharif2024,split,4,Section 3.2,not found,"Once the images are preprocessed and converted into numerical arrays, we divide the dataset into three sets namely training, validation, and testing."
+Alsharif2024,aug,4,"Section 3.2, Splitting Data / Data Augmentation",corrected,"To increase the diversity and robustness of the training dataset, data augmentation techniques, using the Image Data Generator module, was applied."
+Alsharif2024,sel,8,Table 3,verified,Training epochs The model is trained for 100 epochs Batch size Batch size is set to 16 for training and 32 for validation
+Alsharif2024,headline,12,Section 4,verified,The MobileNet model earned a high accuracy score of 100%
+Gawish2025,dataset,8,Section 5.1,verified,"The dataset contained 547 images that were split into batches of 32 images each, giving us a total of 17 32-image batches and one 3-image batch"
+Gawish2025,split,8,Section 5.1,corrected,"the training- validation-testing split was approximately 70-20- 10% yielding 12 batches for training, 3 for validation and 2 for testing"
+Gawish2025,aug,8,Section 5.1,corrected,in the next section we discuss the results of training the model after expanding the training batches using combinations of these methods.
+Gawish2025,sel,8,"Sections 5.1, 5.2.4",verified,"Multiple models were trained using different combinations of data augmentation methods, the goal was to avoid overfitting and find the best performing model."
+Gawish2025,headline,8,Section 5.2.4,verified,with an accuracy reaching 98.4% after 70 Epochs of training
+Kaloforidis2025,dataset,3,Section 3,verified,"A total of 547 images were generated (328 from neurotypical participants and 219 from individuals with ASD), depicting the patterns of eye movements and areas of interest."
+Kaloforidis2025,split,5,Section 5.2,not found,"The Grid Search technique evaluated 3 × 3 × 3 × 3 = 81 combinations, performing 5-fold cross-validation, a training evaluation technique dividing data into five subsets, using four for training and one for validation; this process was repeated five times to use each subset for validation, thus running 405 times."
+Kaloforidis2025,aug,1–12,Entire PDF,not found,
+Kaloforidis2025,sel,5,Section 5.2,corrected,"The Grid Search technique evaluated 3 × 3 × 3 × 3 = 81 combinations, performing 5-fold cross-validation, a training evaluation technique dividing data into five subsets, using four for training and one for validation; this process was repeated five times to use each subset for validation, thus running 405 times."
+Kaloforidis2025,headline,7,Table 6,verified,AUC Score 0.88
+Mousli2025,dataset,6,"Section 4.1, Dataset 1",verified,"This process produced an image dataset of 547 images, including 328 images from TD participants and 219 individuals diagnosed with ASD."
+Mousli2025,split,7,Section 4.2,not found,"Both datasets are split into training, testing, and validation sets following a 70%/20%/10% ratio."
+Mousli2025,aug,4,Section 3.2,verified,"Given an input image xi , a random image augmentation technique-chosen from a predefined set of operations such as rotation, cropping, and flipping-is applied, resulting in an aug- mented version of the image x′ i ."
+Mousli2025,sel,7,Section 4.2,corrected,We select the ResNet-50 archi- tecture over ResNet-101 based on the model results pre- sented in Table 1.
+Mousli2025,headline,8,"Table 2, Dataset 1 ConASD rows",corrected,Proposed ConASD 0.6973 0.6508 0.5939 0.6210 0.7667 0.7694 0.7667 0.7680
+AhmedM2026,dataset,3,Section 2,verified,The dataset contains 547 images: 328 classified
+AhmedM2026,split,8,Section 3.1,verified,we adopted an image- level split rather than a participant-level split.
+AhmedM2026,aug,8,Section 3.1,verified,"Finally, to mitigate overfitting and improve the model’s generalization, we applied simple data augmentation transformations to the training dataset: rotations, width shifts, height shifts, and horizontal flips."
+AhmedM2026,sel,12,Section 3.3,verified,"Optimal weights, selected based on validation set performance, were then applied to combine the models’ predictions for final classification."
+AhmedM2026,headline,1,Abstract,verified,"achieved an accuracy of 98.18%, with a perfect recall, and a competitive Area Under the Curve (AUC) of 99.59%."
+Zhang2026,dataset,5,Section 2.1,verified,"Of the 59 metadata records, 54 participants (26 ASD and 28 TD) had at least one released ETSP image."
+Zhang2026,split,13,Section 2.4.3,verified,"Every image from a participant remained in the same fold, and GLCF-Net and all four baselines used the same saved participant assignments."
+Zhang2026,aug,14,Section 2.4.3 (primary repeated evaluation),corrected,"Inputs were resized deterministically to 224 × 224 pixels and normalized for the corresponding pretrained backbone, with no geometric, color, or sample- mixing augmentation."
+Zhang2026,sel,14,Section 2.4.3 (primary repeated evaluation),corrected,"The architecture and training hyperparameters were fixed before cross-validation, and no outer-test prediction was used for model selection or hyperparameter tuning. Each model was trained for 20 epochs, and the final epoch was evaluated without early stopping or threshold optimization."
+Zhang2026,headline,19,Section 3.6; Table 7,verified,"Af- ter the two out-of-fold probabilities were averaged for each participant, the fixed threshold yielded 25 correctly classified and 3 misclassified TD participants, together with 22 correctly classified and 4 misclassified ASD participants. The corresponding pooled estimates were Accuracy 0.870, Precision 0.880, Sensitivity 0.846, Specificity 0.893, F1-score 0.863, and ROC- AUC 0.937."
+Jaradat2025,dataset,4,Section 3.1,corrected,"This dataset is available on the Figshare repository and contains images that contain visual patterns of gaze behavior and eye movement dynamics data of autistic and non-autistic children, and the Excel sheet contains some attributes about children, one of which is an autism score, published by [14], which contains 215 images of autistic children and 319 images of non-autistic children [15]."
+Jaradat2025,split,9,Section 3.3,not found,"In this work, the dataset was divided into 80% for the training model and 20% for the testing model, because they are some of the best-split ratios [26]."
+Jaradat2025,aug,7,Section 3.2,verified,"In this work, the augmentation techniques generated used three augmentation tech- niques (random rotation, horizontal flip, and vertical flip)."
+Jaradat2025,sel,14,Section 5; Tables 6–8,verified,"In k-fold equal 5, the model performed best in terms of testing precision, accuracy, specificity, and sensitivity."
+Jaradat2025,headline,14,Table 4 and preceding narrative,corrected,"This was followed by ETSDS, as the accuracy reached approximately 98.02% and sensitivity reached 98.25% and specificity reached 97.82%."
